@@ -29,7 +29,7 @@ def solve_hh_backwards(par,z_trans,wt,r,vbeg_a_plus,vbeg_a,a,c,ell,l,inc,u, S, C
             l[i_fix,i_z,:] = ell[i_fix,i_z,:]*z
 
             # iv. saving
-            a[i_fix,i_z,:] = m_exo + wt*l[i_fix,i_z,:] - c[i_fix,i_z,:]
+            a[i_fix,i_z,:] = m_exo + wt*l[i_fix,i_z,:] - c[i_fix,i_z,:] + Chi
 
             # v. refinement at constraint
             for i_a in range(par.Na):
