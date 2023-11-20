@@ -97,7 +97,6 @@ def obj_ss(x,model,do_print=False):
     ss.clearing_G = ss.G + (ss.w*ss.L_G + ss.Chi) - tau * ss.w * ss.L_hh # Gov budget constraint 
 
 
-    #return np.array([ss.clearing_A])
     return  ss.clearing_A , ss.clearing_G
 
 
