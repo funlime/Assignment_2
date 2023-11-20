@@ -24,7 +24,6 @@ class HANCWelfareModelClass(EconModelClass,GEModelClass):
 
         # c. GE
         self.shocks = [ 'G', 'L_G', 'Gamma_G'] # exogenous shocks
-        #self.unknowns = ['K','L_Y'] # endogenous unknowns
         self.unknowns = ['K','L_Y'] # endogenous unknowns
         self.targets = ['clearing_A', 'clearing_G'] #, 'clearing_Y'] # targets = 0
         self.blocks = [ # list of strings to block-functions

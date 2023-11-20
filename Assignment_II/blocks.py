@@ -45,8 +45,6 @@ def government(par,ini,ss,tau,w,wt, L_G, G, Chi , S, Gamma_G):
     Chi[:] = ss.Chi
     # c. Taxes
     tau[:] = ss.tau
-
-
     wt[:] = (1-tau)*w
 
 
