@@ -23,7 +23,7 @@ class HANCWelfareModelClass(EconModelClass,GEModelClass):
         self.intertemps_hh = ['vbeg_a'] # intertemporal variables
 
         # c. GE
-        self.shocks = [ 'G', 'L_G', 'Gamma_Y', 'Gamma_G'] # exogenous shocks
+        self.shocks = [ 'G', 'L_G', 'Gamma_G'] # exogenous shocks
         self.unknowns = ['K','L_Y'] # endogenous unknowns
         self.targets = ['clearing_A', 'clearing_G'] #, 'clearing_Y'] # targets = 0
         self.blocks = [ # list of strings to block-functions
@@ -72,7 +72,6 @@ class HANCWelfareModelClass(EconModelClass,GEModelClass):
         par.L_G_ss = 0.0
         par.Chi_ss = 0.0
         par.Gamma_G_ = 1.0
-        par.Gamma_Y_ = 1.0
         par.Chi_ = 0.0
         par.G_ = 0.0
 

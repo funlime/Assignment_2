@@ -56,12 +56,10 @@ def obj_ss(x,model,do_print=False):
     ss = model.ss
 
     # Dividing labor types 
-    
-    ss.Gamma_Y = par.Gamma_Y_
   
     # a. firms
-    ss.rK = par.alpha*ss.Gamma_Y*(KL)**(par.alpha-1)
-    ss.w = (1.0-par.alpha)*ss.Gamma_Y*(KL)**par.alpha
+    ss.rK = par.alpha*par.Gamma_Y*(KL)**(par.alpha-1)
+    ss.w = (1.0-par.alpha)*par.Gamma_Y*(KL)**par.alpha
 
 
     # b. Name ---
@@ -89,7 +87,7 @@ def obj_ss(x,model,do_print=False):
 
     ss.tau = tau
 
-    ss.Y = ss.Gamma_Y*ss.K**(par.alpha)*ss.L_Y**(1-par.alpha) # Total privat production
+    ss.Y = par.Gamma_Y*ss.K**(par.alpha)*ss.L_Y**(1-par.alpha) # Total privat production
     ss.I = par.delta*ss.K
     ss.A = ss.K                        
 
@@ -110,14 +108,13 @@ def find_ss(model,do_print=False):
     par = model.par
     ss = model.ss
 
-    KL_min = ((1/par.beta+par.delta-1)/(par.alpha*par.Gamma_Y_))**(1/(par.alpha-1)) + 1e-2
-    KL_max = (par.delta/(par.alpha*par.Gamma_Y_))**(1/(par.alpha-1))-1e-2
+    KL_min = ((1/par.beta+par.delta-1)/(par.alpha*par.Gamma_Y))**(1/(par.alpha-1)) + 1e-2
+    KL_max = (par.delta/(par.alpha*par.Gamma_Y))**(1/(par.alpha-1))-1e-2
     KL_mid = (KL_min+KL_max)/2 # middle point between max values as initial capital labor ratio
 
 
     # a. solve for K and L
     initial_guess =  (KL_mid, 0.0) 
-
 #    initial_guess =  np.array([KL_mid])
     
     if do_print: print(f'starting at [{initial_guess[0]:.4f}]')

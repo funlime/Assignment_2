@@ -9,18 +9,18 @@ import numba as nb
 from GEModelTools import lag, lead
 
 @nb.njit
-def production_firm(par,ini,ss,K,L_Y,rK,w,Y, Gamma_Y):
+def production_firm(par,ini,ss,K,L_Y,rK,w,Y):
 
     K_lag = lag(ini.K,K)
 
 
     # a. implied prices (remember K and L are inputs)
-    rK[:] = par.alpha*Gamma_Y*(K_lag/L_Y)**(par.alpha-1.0)
+    rK[:] = par.alpha*par.Gamma_Y*(K_lag/L_Y)**(par.alpha-1.0)
 
-    w[:] = (1.0-par.alpha)*Gamma_Y*(K_lag/L_Y)**par.alpha
+    w[:] = (1.0-par.alpha)*par.Gamma_Y*(K_lag/L_Y)**par.alpha
 
     # b. production and investment
-    Y[:] = Gamma_Y*K_lag**(par.alpha)*L_Y**(1-par.alpha)
+    Y[:] = par.Gamma_Y*K_lag**(par.alpha)*L_Y**(1-par.alpha)
 
 
 @nb.njit
