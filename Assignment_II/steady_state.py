@@ -145,3 +145,7 @@ def find_ss(model,do_print=False):
         print(f'{ss.clearing_A = :.2e}')
         print(f'{ss.clearing_L = :.2e}')
         print(f'{ss.clearing_Y = :.2e}')
+    
+
+
+
