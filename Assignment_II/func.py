@@ -149,8 +149,6 @@ def table_extra(x, model):
 
 
 
-
-
 def table_extra_new(x, model):
 
     par = model.par
@@ -181,6 +179,18 @@ def table_extra_new(x, model):
 
     return df
 
+def table_latex(df, name, new_output):
+
+    if new_output:
+        print('exporting')
+
+            # Exporting to LaTeX
+        latex_table = df.to_latex()
+        with open(f'tables/{name}.tex', 'w') as file:
+            file.write(latex_table)
+    else:
+        print('not exported')
+        print(df)
 
 
 
